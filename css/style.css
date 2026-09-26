@@ -14,6 +14,12 @@ header {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); 
 } 
 
+.brand {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 nav { 
     max-width: 1100px; 
     margin: auto; padding: 15px 25px; 
@@ -64,6 +70,12 @@ nav ul li a:hover {
     text-transform: uppercase;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
 .products {
     padding-left: 1.2em;
 }
@@ -89,4 +101,69 @@ footer {
     color: white;
     border-radius: 24px;
 }
+
+/* tentang kami */
+
+
+/* produk */
+
+body {
+  margin: 0;
+  background: #fbf7f0;
+  color: #2f2118;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+figure {
+  margin: 0 0 24px;
+}
+
+figcaption {
+  margin-top: 8px;
+  color: #6b5b51;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+th,
+td {
+  border: 1px solid #ead8c3;
+  padding: 10px;
+  text-align: left;
+}
+
+thead {
+  background: #f1e3d3;
+}
+
+/* galei */
+img { max-width: 100%; height: auto; }
+figure { margin: 0 0 24px; }
+figcaption { margin-top: 8px; color: #6b5b52; }
+table { width: 100%; border-collapse: collapse; }
+caption { margin-bottom: 8px; font-weight: 700; text-align: left; }
+th,
+td { padding: 10px; text-align: left; border: 1px solid #dccbbc; }
 
