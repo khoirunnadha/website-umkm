@@ -1,221 +1,399 @@
+:root {
+    --color-primary: #523b31;
+    --color-primary-strong: #3d2b23;
+    --color-accent: #ffd166;
+    --color-accent-hover: #f4b942;
+
+    --color-text: #2f2118;
+    --color-muted: #6b5b52;
+
+    --color-surface: #ffffff;
+    --color-surface-soft: #fbf7f0;
+
+    --color-border: #dccbbc;
+    --color-focus: #1d4ed8;
+
+    /* Spacing */
+    --space-1: 0.5rem;
+    --space-2: 0.75rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
+
+    /* Radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.875rem;
+    --radius-lg: 1.5rem;
+    --radius-pill: 999px;
+
+    --shadow-card: 0 0.5rem 1.5rem rgb(47 33 24 / 0.1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/*DASAR HALAMAN*/
+
+html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    color: #2f2118;
-    background: #f6f0f8;
-    font-family: arial, sans-serif;
-
+    color: var(--color-text);
+    background: var(--color-surface-soft);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
-header { 
-    background-color: #523b31; 
-    color: white; 
-    position: sticky; 
-    top: 0; z-index: 1000; 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); 
-} 
+
+h1,
+h2,
+h3 {
+    color: var(--color-primary-strong);
+    line-height: 1.25;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+    margin-top: var(--space-5);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+h3 {
+    margin-bottom: var(--space-1);
+}
+
+p {
+    margin-top: 0;
+}
+
+/*LINK*/
+
+a {
+    color: var(--color-primary-strong);
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--color-muted);
+}
+
+
+/*FOCUS INDICATOR*/
+
+:where(a, button, input, select, textarea):focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+
+/*HEADER DAN NAVIGASI*/
+
+.site-header {
+    background: var(--color-primary);
+    color: var(--color-surface);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.15);
+}
+
+.nav {
+    width: min(100% - 2rem, 60rem);
+    margin-inline: auto;
+    padding-block: var(--space-3);
+}
 
 .brand {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+    display: inline-block;
+    margin-bottom: var(--space-2);
+    color: var(--color-surface);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-nav { 
-    max-width: 1100px; 
-    margin: auto; padding: 15px 25px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-} 
-
-nav h1 { 
-    font-size: 26px; 
-    letter-spacing: 1px; 
-} 
-
-nav ul { 
-    list-style: none; 
-    display: flex; 
-    gap: 25px; 
-} 
-
-nav ul li a { 
-    color: white; 
-    text-decoration: none; 
-    font-size: 15px; 
-    font-weight: bold; 
-    transition: color 0.3s ease; 
-} 
-
-nav ul li a:hover { 
-    color: #d9a066; 
-} 
-
-.page{
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 32px 20px;
+.nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.hero{
-    padding: 32px;
-    color: white;
-    background: #523b31;
-    border-radius: 24px;
+.nav li {
+    display: inline-block;
+    margin-right: var(--space-2);
 }
 
-.eyebrow{
-    margin: 0 0 8px;
-    letter-spacing: 0.14cm;
+.nav li:last-child {
+    margin-right: 0;
+}
+
+.nav li a {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    color: var(--color-surface);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+}
+
+.nav li a:hover {
+    color: var(--color-accent);
+    background: var(--color-primary-strong);
+}
+
+
+/*HALAMAN UTAMA*/
+
+.page {
+    width: min(100% - 2rem, 60rem);
+    margin-inline: auto;
+    padding-block: var(--space-5);
+}
+
+
+/*HERO*/
+
+.hero {
+    margin-bottom: var(--space-5);
+    padding: var(--space-5);
+    color: var(--color-surface);
+    background: var(--color-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.hero h1 {
+    margin-bottom: var(--space-2);
+    color: var(--color-surface);
+}
+
+.hero p {
+    margin-bottom: var(--space-3);
+}
+
+.eyebrow {
+    margin: 0 0 var(--space-2);
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+
+/*TOMBOL*/
+
+button {
+    padding: var(--space-2) var(--space-4);
+    color: var(--color-text);
+    background: var(--color-accent);
+    border: 0;
+    border-radius: var(--radius-pill);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
 }
 
+button:hover {
+    background: var(--color-accent-hover);
+}
+
+
+/*GAMBAR*/
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+figure {
+    margin: 0 0 var(--space-4);
+}
+
+figcaption {
+    margin-top: var(--space-2);
+    color: var(--color-muted);
+}
+
+
+/*PRODUK*/
 
 .products {
     padding-left: 1.2em;
 }
 
-
-
-button {
-    padding: 12px 18px;
-    color: #2f2118;
-    font-weight: 700;
-    cursor: pointer;
-    background: #ffd166;
-    border: 0;
-    border-radius: 999px;
+.products li {
+    margin-bottom: var(--space-1);
 }
 
-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 32px;
-    margin-top: 32px;
-    background: #523b31;
-    color: white;
-    border-radius: 24px;
+
+/*GALERI*/
+
+.media-card {
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
 }
 
-/* tentang kami */
-
-
-/* produk */
-
-body {
-  margin: 0;
-  background: #fbf7f0;
-  color: #2f2118;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+.media-card img {
+    display: block;
+    margin-bottom: var(--space-2);
 }
 
-.page {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 28px 20px;
+.media-card figcaption {
+    margin-top: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 18px;
+
+/*AUDIO*/
+
+audio {
+    max-width: 100%;
+    margin-bottom: var(--space-4);
 }
 
-figure {
-  margin: 0 0 24px;
-}
 
-figcaption {
-  margin-top: 8px;
-  color: #6b5b51;
-}
+/*TABEL*/
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
+    width: 100%;
+    margin-top: var(--space-3);
+    border-collapse: collapse;
+    background: var(--color-surface);
 }
 
 caption {
-  text-align: left;
-  font-weight: 700;
-  margin-bottom: 8px;
+    margin-bottom: var(--space-2);
+    text-align: left;
+    font-weight: 700;
 }
 
 th,
 td {
-  border: 1px solid #ead8c3;
-  padding: 10px;
-  text-align: left;
+    padding: var(--space-2);
+    text-align: left;
+    border: 1px solid var(--color-border);
+}
+
+th {
+    font-weight: 700;
 }
 
 thead {
-  background: #f1e3d3;
+    background: #f1e3d3;
 }
 
-/* galei */
-img { max-width: 100%; height: auto; }
-figure { margin: 0 0 24px; }
-figcaption { margin-top: 8px; color: #6b5b52; }
-table { width: 100%; border-collapse: collapse; }
-caption { margin-bottom: 8px; font-weight: 700; text-align: left; }
-th,
-td { padding: 10px; text-align: left; border: 1px solid #dccbbc; }
 
-/* kontak */
-body {
-  margin: 0;
-  background: #f7f3ed;
-  color: #2f2118;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-.page {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 28px 20px;
-}
+/*FORM KONTAK*/
 
 form,
 pre {
-  background: white;
-  border: 1px solid #ead8c3;
-  border-radius: 16px;
-  padding: 18px;
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
 }
 
 .field {
-  display: grid;
-  gap: 6px;
-  margin-bottom: 14px;
+    margin-bottom: var(--space-3);
 }
 
 label,
 legend {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 input,
 select,
-textarea,
-button {
-  font: inherit;
-  padding: 10px;
+textarea {
+    width: 100%;
+    padding: var(--space-2);
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
 }
 
 fieldset {
-  display: grid;
-  gap: 8px;
-  margin: 0 0 14px;
-  border: 1px solid #ead8c3;
-  border-radius: 12px;
+    margin: 0 0 var(--space-3);
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
 }
 
-button {
-  cursor: pointer;
+fieldset label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 400;
+}
+
+fieldset input[type="radio"] {
+    width: auto;
+    margin-right: var(--space-1);
+}
+
+
+/* PREVIEW FORM*/
+
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
+/*BAGIAN KONTAK SINGKAT */
+
+.alamat,
+.jam-operasional,
+.kanal-pemesanan {
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.alamat h3,
+.jam-operasional h3,
+.kanal-pemesanan h3 {
+    margin-top: 0;
+}
+
+
+/*FOOTER*/
+
+.site-footer {
+    width: min(100% - 2rem, 60rem);
+    margin: 0 auto var(--space-5);
+    padding: var(--space-4);
+    color: var(--color-surface);
+    background: var(--color-primary);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
 }
