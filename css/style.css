@@ -1,4 +1,3 @@
-
 :root {
     --color-primary: #523b31;
     --color-primary-strong: #3d2b23;
@@ -564,18 +563,97 @@ pre {
     margin: 0;
 }
 
-/* P07 - RESPONSIVE MOBILE-FIRST */
+/* ========================================= */
+/* P07 - RESPONSIVE MOBILE-FIRST             */
+/* ========================================= */
 
-/* Tablet kecil */
+/* NAVIGASI DASAR */
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.brand {
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.nav-menu {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 0;
+    margin-left: auto;
+}
+
+/* Sembunyikan checkbox fisik asli */
+.menu-checkbox {
+    display: none;
+}
+
+/* TOMBOL HAMBURGER UNTUK HP */
+.menu-button {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    color: var(--color-surface);
+    background: var(--color-primary-strong);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* MENU HP TERTUTUP (Bawaan) */
+.nav-menu ul {
+    display: none;
+}
+
+/* MENU HP TERBUKA (Saat tombol diklik / checkbox aktif) */
+.menu-checkbox:checked ~ ul {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    width: min(240px, calc(100vw - 32px));
+    margin: 0;
+    padding: var(--space-2);
+    background: var(--color-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    list-style: none;
+}
+
+/* TAUTAN MENU */
+.nav-menu ul li {
+    margin: 0;
+}
+
+.nav-menu ul li a {
+    display: block;
+    padding: var(--space-2);
+    color: var(--color-surface);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a[aria-current="page"] {
+    color: var(--color-accent);
+    background: var(--color-primary-strong);
+}
+
+/* TABLET KECIL */
 @media (min-width: 42rem) {
-    .nav {
-        align-items: flex-start;
-    }
-
-    .nav ul {
-        flex-direction: row;
-    }
-
     .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -585,8 +663,52 @@ pre {
     }
 }
 
-/* Tablet */
+/* LAPTOP DAN DESKTOP */
 @media (min-width: 48rem) {
+    .nav {
+        flex-wrap: nowrap;
+    }
+
+    .brand {
+        flex-shrink: 0;
+    }
+
+    .nav-menu {
+        position: static;
+        flex: 1 1 auto;
+        min-width: 0;
+        margin-left: auto;
+    }
+
+    /* SEMBUNYIKAN HAMBURGER DI LAPTOP */
+    .menu-button {
+        display: none !important;
+    }
+
+    /* TAMPILKAN NAVIGASI MENDATAR (Abaikan status checkbox) */
+    .nav-menu ul,
+    .menu-checkbox:checked ~ ul {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 4px;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .nav-menu ul li a {
+        padding: 8px 10px;
+        white-space: nowrap;
+    }
+
     .hero {
         grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
     }
@@ -601,12 +723,15 @@ pre {
     }
 }
 
-/* Layar lebar */
+/* DESKTOP LEBAR */
 @media (min-width: 60rem) {
     .nav {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .nav-menu ul,
+    .menu-checkbox:checked ~ ul {
+        flex-wrap: nowrap;
     }
 
     .product-grid {
@@ -614,7 +739,7 @@ pre {
     }
 }
 
-/* Mengurangi animasi jika diminta pengguna */
+/* AKSESIBILITAS: KURANGI ANIMASI */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
