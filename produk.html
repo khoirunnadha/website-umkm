@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produk - Kopi Dua Roda</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
 </head>
 <body>
    <header class="site-header">
@@ -29,13 +30,22 @@
     <section aria-labelledby="produk-title">
         <h1 id="produk-title">Produk Pilihan Kopi Dua Roda</h1>
 
+    <section class="section" aria-labelledby="produk-dinamis-title">
+        <div class="section-header">
+            <p class="eyebrow">Data JavaScript</p>
+            <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
+            <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
+        </div>
+        <div id="produk-dinamis" class="js-product-grid"></div>
+    </section>
+
         <div class="product-grid">
             <article class="product-card">
                 <img src="images/kopi tubruk signa.jpg" width="2576" height="1405" loading="lazy"
                      alt="Kopi Tubruk Signature">
                 <h2>Kopi Tubruk Signature</h2>
                 <p>Kopi dengan cita rasa khas dan aroma yang nikmat.</p>
-                <p class="harga">Rp45.000</p>
+                <p class="harga">Rp20.000</p>
             </article>
 
             <article class="product-card">
@@ -50,8 +60,24 @@
                 <img src="images/arabika.jpg" width="2576" height="1405" loading="lazy"
                      alt="Kopi Arabika">
                 <h2>Kopi Arabika</h2>
-                <p>Kopi arabika dengan aroma dan karakter khas.</p>
+                <p>Kopi murni arabika dengan aroma dan karakter khas.</p>
                 <p class="harga">Rp40.000</p>
+            </article>
+
+            <article class="product-card">
+                <img src="images/vietnam-drip.jpg" width="2576" height="1405" loading="lazy"
+                     alt="Kopi Vietnam Drip">
+                <h2>Kopi Vietnam Drip</h2>
+                <p>Kopi seduh perlahan dengan paduan susu kental manis yang legit dan khas.</p>
+                <p class="harga">Rp25.000</p>
+            </article>
+
+            <article class="product-card">
+                <img src="images/bandling.jpg" width="2576" height="1405" loading="lazy"
+                     alt="Paket Nongkrong">
+                <h2>Paket Nongkrong</h2>
+                <p>Paket bundling hemat untuk menemani waktu nongkrong Anda.</p>
+                <p class="harga">Rp50.000</p>
             </article>
         </div>
 
@@ -70,21 +96,35 @@
                 <thead>
                     <tr>
                         <th scope="col">Produk</th>
+                        <th scope="col">Ukuran</th>
                         <th scope="col">Harga</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Kopi Tubruk Signature</td>
-                        <td>Rp45.000</td>
+                        <td>Reguler</td>
+                        <td>Rp20.000</td>
                     </tr>
                     <tr>
                         <td>Cold Brew Aren</td>
+                        <td>Reguler</td>
                         <td>Rp27.000</td>
                     </tr>
                     <tr>
                         <td>Kopi Arabika</td>
+                        <td>250 Gram</td>
                         <td>Rp40.000</td>
+                    </tr>
+                    <tr>
+                        <td>Kopi Vietnam Drip</td>
+                        <td>Reguler</td>
+                        <td>Rp25.000</td>
+                    </tr>
+                     <tr>
+                        <td>Paket Nongkrong</td>
+                        <td>2 Cup</td>
+                        <td>Rp50.000</td>
                     </tr>
                 </tbody>
             </table>
